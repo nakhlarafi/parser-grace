@@ -345,9 +345,9 @@ for i, xss in enumerate(prlist):
                 for y in ms:
                     avaiableM.append(y.strip())
             if xss == 'Lang' and idx == 2:
-                os.system("cp -r /data/zqh/FLocalization/1.2-Lang-2 buggy2")
+                os.system("cp -r /data/zqh/FLocalization/1.2-Lang-2 buggy2") # Copy folder
             else:
-                os.system('defects4j checkout -p %s -v %db -w buggy%d'%(x, idx, idx))#os.system('defects4j')
+                os.system('defects4j checkout -p %s -v %db -w buggy%d'%(x, idx, idx))#os.system('defects4j') Checkout the buggy versions
             #os.system('defects4j checkout -p %s -v %db -w buggy2'%(x, idx))#os.system('defects4j')
             #os.system('defects4j checkout -p %s -v %df -w fixed'%(x, idx))
             #lines = open(locationdir, 'r').readlines()
@@ -359,8 +359,8 @@ for i, xss in enumerate(prlist):
             #    prob = eval(lst[1])
             #    classname, lineid= lst[0].split('#')
             #    location.append((classname, prob, eval(lineid)))
-            #    locationdict[lst[0]] = (classname, prob, eval(lineid))         
-            dirs = os.popen('defects4j export -p dir.src.classes -w buggy%d'%idx).readlines()[-1]
+            #    locationdict[lst[0]] = (classname, prob, eval(lineid))
+            dirs = os.popen('defects4j export -p dir.src.classes -w buggy%d'%idx).readlines()[-1] # Returns the directory of the class files
             #correctpath = os.popen('defects4j export -p classes.modified -w fixed').readlines()[-1]
             #fpath = "fixed/%s/%s.java"%(dirs, correctpath.replace('.', '/'))
             #fpathx = "buggy/%s/%s.java"%(dirs, correctpath.replace('.', '/'))
